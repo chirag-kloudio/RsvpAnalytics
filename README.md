@@ -7,11 +7,11 @@
   - Perform Analysis using Apache Spark.
  
 # Tools Used
- - ##### Programming:
+ - Programming:
   - Python
   - Scala
- - ##### Big Data:
+ - Big Data:
   - Apache Kafka
   - Apache Spark
- - ##### Database:
+ - Database:
   - Cassandra
