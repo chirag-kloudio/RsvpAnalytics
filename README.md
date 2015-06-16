@@ -15,3 +15,11 @@
   - Apache Spark
  - Database:
   - Cassandra
+
+# How to run(sequence)
+ - Start Zookeeper
+ - Start Kafka
+ - Start Cassandra
+ - Run rsvp_producer.py
+ - Run rsvp_consumer.py
+ - Run spark_analysis/src/main/scala/SparkAnalysis.scala
