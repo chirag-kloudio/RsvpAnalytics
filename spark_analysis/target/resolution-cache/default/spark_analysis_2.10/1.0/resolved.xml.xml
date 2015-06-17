@@ -4,7 +4,7 @@
 		module="spark_analysis_2.10"
 		revision="1.0"
 		status="integration"
-		publication="20150616120650"
+		publication="20150617180913"
 	>
 		<description>
 		spark_analysis
@@ -27,7 +27,7 @@
 	</configurations>
 	<publications>
 		<artifact name="spark_analysis_2.10" type="pom" ext="pom" conf="pom"/>
-		<artifact name="spark_analysis_2.10" type="jar" ext="jar" conf="optional" e:classifier="download, resolveClassifiers, resolveSbtClassifiers"/>
+		<artifact name="spark_analysis_2.10" type="jar" ext="jar" conf="optional" e:classifier="download"/>
 	</publications>
 	<dependencies>
 		<dependency org="org.scala-lang" name="scala-compiler" rev="2.10.4" conf="scala-tool->default,optional(default)"/>

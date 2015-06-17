@@ -13,17 +13,20 @@ from websocket import create_connection
 kafka = KafkaClient("localhost:9092")
 producer = SimpleProducer(kafka)
 
-# To keep track of how many tweets we got.
-count = 0
-
 def rsvp_source():
-    global count
+    """
+    1. Connects to meetup rsvp websocket stream.
+    2. Received the stream.
+    3. Sends the stream as a producer.
+    """
     ws = create_connection('ws://stream.meetup.com/2/rsvps')
     while True:
         try:
-            rsvp_data = ws.recv() # Get realtime data using sockets.
+            rsvp_data = ws.recv() # Get realtime data using web socketss
             if rsvp_data:
+                # Send the stream to the topic "rsvp_stream"
                 producer.send_messages("rsvp_stream", rsvp_data)
+        # No matter what the Exception is keep calling the function recursively
         except:
             rsvp_source()
 

@@ -1,4 +1,4 @@
-[info] Updating {file:/home/dinesh/Desktop/files/repository/meetup_underprogress/spark_analysis/project/}spark_analysis-build...
+[info] Updating {file:/home/dinesh/Desktop/files/code/repository/RsvpAnalytics/spark_analysis/project/}spark_analysis-build...
 [debug] :: resolving dependencies :: default#spark_analysis-build;0.1-SNAPSHOT
 [debug] 	confs: [compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool]
 [debug] 	validate = true
@@ -16,7 +16,7 @@
 [debug] == resolving dependencies for default#spark_analysis-build;0.1-SNAPSHOT [provided]
 [debug] == resolving dependencies default#spark_analysis-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.4 [provided->default(compile)]
 [info] Resolving org.scala-lang#scala-library;2.10.4 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@16b6effb
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@7d3b1eca
 [debug] sbt-chain: module revision found in cache: org.scala-lang#scala-library;2.10.4
 [debug] 	found org.scala-lang#scala-library;2.10.4 in sbt-chain
 [debug] 	[2.10.4] org.scala-lang#scala-library;2.10.4
@@ -1766,19 +1766,19 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.8!apply-macro.jar
 [debug] 	[NOT REQUIRED] org.scala-lang#jline;2.10.4!jline.jar
 [debug] 	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar
-[debug] :: resolution report :: resolve 4209ms :: artifacts dl 73ms
-[debug] 	report for default#spark_analysis-build;0.1-SNAPSHOT compile produced in /home/dinesh/Desktop/files/repository/meetup_underprogress/spark_analysis/project/target/resolution-cache/reports/default-spark_analysis-build-compile.xml
-[debug] 	report for default#spark_analysis-build;0.1-SNAPSHOT runtime produced in /home/dinesh/Desktop/files/repository/meetup_underprogress/spark_analysis/project/target/resolution-cache/reports/default-spark_analysis-build-runtime.xml
-[debug] 	report for default#spark_analysis-build;0.1-SNAPSHOT test produced in /home/dinesh/Desktop/files/repository/meetup_underprogress/spark_analysis/project/target/resolution-cache/reports/default-spark_analysis-build-test.xml
-[debug] 	report for default#spark_analysis-build;0.1-SNAPSHOT provided produced in /home/dinesh/Desktop/files/repository/meetup_underprogress/spark_analysis/project/target/resolution-cache/reports/default-spark_analysis-build-provided.xml
-[debug] 	report for default#spark_analysis-build;0.1-SNAPSHOT optional produced in /home/dinesh/Desktop/files/repository/meetup_underprogress/spark_analysis/project/target/resolution-cache/reports/default-spark_analysis-build-optional.xml
-[debug] 	report for default#spark_analysis-build;0.1-SNAPSHOT compile-internal produced in /home/dinesh/Desktop/files/repository/meetup_underprogress/spark_analysis/project/target/resolution-cache/reports/default-spark_analysis-build-compile-internal.xml
-[debug] 	report for default#spark_analysis-build;0.1-SNAPSHOT runtime-internal produced in /home/dinesh/Desktop/files/repository/meetup_underprogress/spark_analysis/project/target/resolution-cache/reports/default-spark_analysis-build-runtime-internal.xml
-[debug] 	report for default#spark_analysis-build;0.1-SNAPSHOT test-internal produced in /home/dinesh/Desktop/files/repository/meetup_underprogress/spark_analysis/project/target/resolution-cache/reports/default-spark_analysis-build-test-internal.xml
-[debug] 	report for default#spark_analysis-build;0.1-SNAPSHOT plugin produced in /home/dinesh/Desktop/files/repository/meetup_underprogress/spark_analysis/project/target/resolution-cache/reports/default-spark_analysis-build-plugin.xml
-[debug] 	report for default#spark_analysis-build;0.1-SNAPSHOT sources produced in /home/dinesh/Desktop/files/repository/meetup_underprogress/spark_analysis/project/target/resolution-cache/reports/default-spark_analysis-build-sources.xml
-[debug] 	report for default#spark_analysis-build;0.1-SNAPSHOT docs produced in /home/dinesh/Desktop/files/repository/meetup_underprogress/spark_analysis/project/target/resolution-cache/reports/default-spark_analysis-build-docs.xml
-[debug] 	report for default#spark_analysis-build;0.1-SNAPSHOT pom produced in /home/dinesh/Desktop/files/repository/meetup_underprogress/spark_analysis/project/target/resolution-cache/reports/default-spark_analysis-build-pom.xml
-[debug] 	report for default#spark_analysis-build;0.1-SNAPSHOT scala-tool produced in /home/dinesh/Desktop/files/repository/meetup_underprogress/spark_analysis/project/target/resolution-cache/reports/default-spark_analysis-build-scala-tool.xml
-[debug] 	resolve done (4209ms resolve - 73ms download)
+[debug] :: resolution report :: resolve 4047ms :: artifacts dl 99ms
+[debug] 	report for default#spark_analysis-build;0.1-SNAPSHOT compile produced in /home/dinesh/Desktop/files/code/repository/RsvpAnalytics/spark_analysis/project/target/resolution-cache/reports/default-spark_analysis-build-compile.xml
+[debug] 	report for default#spark_analysis-build;0.1-SNAPSHOT runtime produced in /home/dinesh/Desktop/files/code/repository/RsvpAnalytics/spark_analysis/project/target/resolution-cache/reports/default-spark_analysis-build-runtime.xml
+[debug] 	report for default#spark_analysis-build;0.1-SNAPSHOT test produced in /home/dinesh/Desktop/files/code/repository/RsvpAnalytics/spark_analysis/project/target/resolution-cache/reports/default-spark_analysis-build-test.xml
+[debug] 	report for default#spark_analysis-build;0.1-SNAPSHOT provided produced in /home/dinesh/Desktop/files/code/repository/RsvpAnalytics/spark_analysis/project/target/resolution-cache/reports/default-spark_analysis-build-provided.xml
+[debug] 	report for default#spark_analysis-build;0.1-SNAPSHOT optional produced in /home/dinesh/Desktop/files/code/repository/RsvpAnalytics/spark_analysis/project/target/resolution-cache/reports/default-spark_analysis-build-optional.xml
+[debug] 	report for default#spark_analysis-build;0.1-SNAPSHOT compile-internal produced in /home/dinesh/Desktop/files/code/repository/RsvpAnalytics/spark_analysis/project/target/resolution-cache/reports/default-spark_analysis-build-compile-internal.xml
+[debug] 	report for default#spark_analysis-build;0.1-SNAPSHOT runtime-internal produced in /home/dinesh/Desktop/files/code/repository/RsvpAnalytics/spark_analysis/project/target/resolution-cache/reports/default-spark_analysis-build-runtime-internal.xml
+[debug] 	report for default#spark_analysis-build;0.1-SNAPSHOT test-internal produced in /home/dinesh/Desktop/files/code/repository/RsvpAnalytics/spark_analysis/project/target/resolution-cache/reports/default-spark_analysis-build-test-internal.xml
+[debug] 	report for default#spark_analysis-build;0.1-SNAPSHOT plugin produced in /home/dinesh/Desktop/files/code/repository/RsvpAnalytics/spark_analysis/project/target/resolution-cache/reports/default-spark_analysis-build-plugin.xml
+[debug] 	report for default#spark_analysis-build;0.1-SNAPSHOT sources produced in /home/dinesh/Desktop/files/code/repository/RsvpAnalytics/spark_analysis/project/target/resolution-cache/reports/default-spark_analysis-build-sources.xml
+[debug] 	report for default#spark_analysis-build;0.1-SNAPSHOT docs produced in /home/dinesh/Desktop/files/code/repository/RsvpAnalytics/spark_analysis/project/target/resolution-cache/reports/default-spark_analysis-build-docs.xml
+[debug] 	report for default#spark_analysis-build;0.1-SNAPSHOT pom produced in /home/dinesh/Desktop/files/code/repository/RsvpAnalytics/spark_analysis/project/target/resolution-cache/reports/default-spark_analysis-build-pom.xml
+[debug] 	report for default#spark_analysis-build;0.1-SNAPSHOT scala-tool produced in /home/dinesh/Desktop/files/code/repository/RsvpAnalytics/spark_analysis/project/target/resolution-cache/reports/default-spark_analysis-build-scala-tool.xml
+[debug] 	resolve done (4047ms resolve - 99ms download)
 [info] Done updating.
