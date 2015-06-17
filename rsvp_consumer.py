@@ -2,7 +2,6 @@
 
 # # pyspark Library
 import json
-import csv
 import datetime
 
 # Kakfa Library
@@ -14,7 +13,6 @@ group_id = "meetup_rsvp_stream"
 # Kafka Consumer
 consumer = KafkaConsumer("rsvp_stream", group_id=group_id,
                         metadata_broker_list = kafka_brokers_list)
-
 
 from cqlengine import columns
 from cqlengine.models import Model
@@ -106,7 +104,8 @@ if consumer:
         if group:
             group_topics = group.get('group_topics')
             if group_topics:
-                group_topic_names = ','.join([each_group_topic.get('topic_name') for each_group_topic in group_topics])
+                group_topic_names = ','.join([each_group_topic.get('topic_name') \
+                                              for each_group_topic in group_topics])
                 type(group_topic_names)
             else:
                 group_topic_names = ''
@@ -118,13 +117,16 @@ if consumer:
             group_state = group.get('group_state')
             group_lat = group.get('group_lat')
         else:
-            group_topic_names, group_city, group_country, group_id, group_name, group_lon, \
-            group_state, group_lat = '', '', '', '', '', '', '', ''
+            group_topic_names, group_city, group_country, group_id, \
+            group_name, group_lon, group_state, group_lat = \
+            '', '', '', '', '', '', '', ''
 
         try:
-            Rsvpstream.create(venue_name = venue_name, venue_lon = venue_lon, venue_lat = venue_lat, \
-                venue_id = venue_id, visibility = visibility, response = response, guests = guests, \
-                member_id = member_id, member_name = member_name, rsvp_id = rsvp_id, \
+            # Write data to Cassandra database
+            Rsvpstream.create(venue_name = venue_name, venue_lon = venue_lon, \
+                venue_lat = venue_lat, venue_id = venue_id, visibility = visibility, \
+                response = response, guests = guests, member_id = member_id, \
+                member_name = member_name, rsvp_id = rsvp_id, \
                 rsvp_last_modified_time  = rsvp_last_modified_time, \
                 event_name = event_name, event_time = event_time, event_url = event_url, \
                 group_topic_names = group_topic_names, group_country = group_country, \
