@@ -1,8 +1,5 @@
 #!/usr/bin/env python
 
-# Standard Libraries
-import json
-
 # Kafka Library
 from kafka import SimpleProducer, KafkaClient
 
