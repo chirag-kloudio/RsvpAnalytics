@@ -22,42 +22,47 @@ object SparkAnalysis {
     val rsvp = sc.cassandraTable("meetup", "rsvpstream")
     rsvp.cache() // cache the RDD
 
+    println("Total no of rows available in the data: " + rsvp.count())
+    println(rsvp.first())
+
     val group_city_data = rsvp.select("group_city") // Get group city column data
     group_city_data.cache() // cache group city data
 
     //// Overall no.of of unique group cities
-
     // Get distinct group_city names
     val groupCityOverall = group_city_data
-      .map(city => city.getString(0)).distinct()
-    // Calculate the count of the distinct city names
-    val groupCityOverallCount = groupCityOverall.count()
+        .map(city => city.getString(0)).distinct() // Get city name from Cassandrarow and remove duplicate cities
+    val groupCityOverallCount = groupCityOverall.count() // Calculate overall count
+    println("Total Count of distinct city names is: " + groupCityOverallCount)
 
+    /// No.of observations for each city
     // Map to (group_city, 1)
     val group_city_count = group_city_data
       .map(city => (city.getString(0), 1))
 
-    //// Count of each group cities. ex: New York - 5059, San Fransisco - 3125
-
+    /// Count of each group city. ex: New York - 5059, San Fransisco - 3125
     // Calculate the count for each city
     val groupCityCounts = group_city_count.reduceByKey(_ + _)
-    //Sort by value in ascending order
+    //Sort by value in descending order
     val groupCityCountsOverall = ListMap(groupCityCounts.collect.toSeq.sortWith(_._2 > _._2):_*)
+    println("Count of observations for top 10 cities: ")
+    groupCityCountsOverall.take(10).foreach(println) //Print top 10 cities
 
-    //// Overall no. of group countries
+    /// Total count of unique group countries
     val groupCountrydata = rsvp.select("group_country")
     groupCountrydata.cache()
     val groupCountriesOverall = groupCountrydata
       .map(country => country.getString(0)).distinct()
     val groupCountriesOverallCount = groupCountriesOverall.count()
-
+    println("Total count of disctinct country names: " + groupCountriesOverallCount)
     // Map to (group_country, 1)
     val groupCountryCount = groupCountrydata
       .map(country => (country.getString(0), 1))
       .reduceByKey(_ + _)
 
     val groupCountryCountsOverall = ListMap(groupCountryCount.collect.toSeq.sortWith(_._2 > _._2):_*)
-    //groupCountryCountsOverall.foreach(println)
+    println("Count of observations for top 10 countries : ")
+    groupCountryCountsOverall.take(10).foreach(println)
 
     // Counts of responses - yes or no
     val response = rsvp.select("response")
@@ -65,9 +70,9 @@ object SparkAnalysis {
     val responseCount = response
       .map(resp => (resp.getString(0), 1))
       .reduceByKey(_ + _)
-
     val responseOverallCount = ListMap(responseCount.collect.toSeq.sortWith(_._2 > _._2):_*)
-    //responseOverallCount.foreach(println)
+    println("Breakup of yes and no responses: ")
+    responseOverallCount.foreach(println)
     val yesCount = responseOverallCount("yes")
     val noCount = responseOverallCount("no")
     val totalCount = yesCount + noCount
@@ -76,11 +81,19 @@ object SparkAnalysis {
     val yesProportion = (yesCount * 100) / totalCount
     val noProportion = (noCount * 100) / totalCount
 
-    //// response per country
+    println("Proportion of people who answered yes: " + yesProportion + "%")
+    println("Proportion of people who answered no: " + noProportion + "%")
+
+    // response per country
     val responseCountry = rsvp.select("group_country", "response")
     val groupedResponses = responseCountry
       .map(line => (line.getString(0), line.getString(1)))
       .countByValue
+      .map(line => (line._1._1, (line._1._2, line._2)))
+
+
+    groupedResponses.take(10).foreach(println)
+
 
     // Users from which countries invite guests with them
     val countryGuests = rsvp.select("group_country", "guests")
@@ -88,29 +101,23 @@ object SparkAnalysis {
       .filter(line => line._2 > 0)
       .reduceByKey(_ + _)
 
-    // Total count of countries which invited guests
-    val countCountryGuests = countryGuests
-      .map(country => country._1).distinct().count()
-
-    // Top 10 countries in desceding order of the no.of guests invited
+    // Top 10 countries in descending order of the no.of people who invited guests
     val topCountrieswithGuests = ListMap(countryGuests.collect.toSeq.sortWith(_._2 > _._2):_*)
-    //topCountrieswithGuests.take(10).foreach(println)
+    println("TOp 10 countries grouped by no. of people who invited guests: ")
+    topCountrieswithGuests.take(10).foreach(println)
 
 
-    // Users from which countries invite guests with them
+    // Users from which cities invite guests with them
     val cityGuests = rsvp.select("group_city", "guests")
       .map(line => (line.getString(0), line.getString(1).toInt))
       .filter(line => line._2 > 0)
       .reduceByKey(_ + _)
 
-    // Total count of cities which invited guests
-    val countCityGuests = cityGuests
-      .map(city => city._1).distinct().count()
-
-    // Top 10 countries in desceding order of the no.of guests invited
+    // Top 10 cities in descending order of the no.of people who invited guests
     val topCitywithGuests = ListMap(cityGuests.collect.toSeq.sortWith(_._2 > _._2):_*)
-    //topCitywithGuests.take(10).foreach(println)
-    println(countCityGuests)
+    println("Top 10 cities grouped by no. of people who invited guests: ")
+    topCitywithGuests.take(10).foreach(println)
+
 
   }
 }
