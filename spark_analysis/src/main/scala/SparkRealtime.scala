@@ -1,8 +1,6 @@
 import org.apache.spark.streaming.{Seconds, StreamingContext}
 import org.apache.spark.streaming.kafka.KafkaUtils
 import org.apache.spark.{SparkConf, SparkContext}
-import org.apache.spark.SparkContext._
-import org.apache.spark.sql.SQLContext
 
 import org.apache.log4j.{Level, Logger}
 
@@ -11,7 +9,7 @@ object SparkRealtime {
   def main(args: Array[String]): Unit = {
 
     Logger.getLogger("org").setLevel(Level.OFF)
-    Logger.getLogger("akka").setLevel(Level.OFF);
+    Logger.getLogger("akka").setLevel(Level.OFF)
 
     val conf = new SparkConf(true)
       .setMaster("local[2]")

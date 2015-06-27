@@ -1,3 +1,4 @@
 backup
 *.pyc
-.idea
+*.idea
+target
