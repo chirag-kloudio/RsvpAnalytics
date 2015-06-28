@@ -34,3 +34,5 @@ libraryDependencies ++= Seq(
 )
 
 libraryDependencies += "com.datastax.spark" %% "spark-cassandra-connector" % "1.3.0-M1"
+
+libraryDependencies += "com.lambdaworks" % "jacks_2.10" % "2.2.3"
