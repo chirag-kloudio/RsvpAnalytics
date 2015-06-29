@@ -30,9 +30,7 @@ libraryDependencies ++= Seq(
   "org.twitter4j" % "twitter4j-stream" % "4.0.0",
   "org.apache.spark" % "spark-sql_2.10" % sparkVersion,
   "org.scala-lang" % "scala-reflect" % "1.3.0", // scala version
-  "org.json4s" %% "json4s-native" % "3.2.10"
+  "org.json4s" %% "json4s-native" % "3.2.10",
+  "com.datastax.spark" %% "spark-cassandra-connector" % "1.3.0-M1",
+  "com.lambdaworks" % "jacks_2.10" % "2.2.3"
 )
-
-libraryDependencies += "com.datastax.spark" %% "spark-cassandra-connector" % "1.3.0-M1"
-
-libraryDependencies += "com.lambdaworks" % "jacks_2.10" % "2.2.3"
